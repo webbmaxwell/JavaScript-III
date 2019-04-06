@@ -2,8 +2,8 @@
 * in your own words. explain the four principle for the "this" keyword below.
 *
 * 1.Window Binding - If not otherwise specified, "this" refers to the window
-* 2.Implicit-Binding - Using "this" within an object to refer to the object
-* 3. New Binding - Renaming something after the fact to give "this" something to refer to
+* 2.Implicit-Binding - Using "this" within an object to refer to the object. Whatever precedes the dot when the function is called is "this"
+* 3. New Binding - Renaming something after the fact to give "this" something to refer to by using the "new" keyword.
 * 4.Explicit Binding - Using inheritance to define "this" as something specific from a parent prototype.
 *
 * write out a code example of each explanation above
@@ -18,7 +18,7 @@ console.log(this.getName);
 function Person(firstName, lastName) {
   this.firstName = firstName,
   this.lastName = lastName,
-}
+};
 
 // Principle 3
 
