@@ -1,26 +1,32 @@
-/* The for principles of "this";
+/* The four principles of "this";
 * in your own words. explain the four principle for the "this" keyword below.
 *
-* 1. 
-* 2. 
-* 3. 
-* 4. 
+* 1.Window Binding - If not otherwise specified, "this" refers to the window
+* 2.Implicit-Binding - Using "this" within an object to refer to the object. Whatever precedes the dot when the function is called is "this"
+* 3. New Binding - Renaming something after the fact to give "this" something to refer to by using the "new" keyword.
+* 4.Explicit Binding - Using inheritance to define "this" as something specific from a parent prototype.
 *
 * write out a code example of each explanation above
 */
 
 // Principle 1
 
-// code example for Window Binding
+console.log(this.getName);
 
 // Principle 2
 
-// code example for Implicit Binding
+function Person(firstName, lastName) {
+  this.firstName = firstName,
+  this.lastName = lastName,
+};
 
 // Principle 3
 
-// code example for New Binding
+let me = new Person("Maxwell", "Webb");
 
 // Principle 4
 
-// code example for Explicit Binding
+function Employee(firstName, lastName) {
+  Person.call(this, firstName, lastName), //.call is how this is bound
+  this.salary = "$12/hr"
+}
