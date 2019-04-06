@@ -41,18 +41,24 @@
 
 // Test you work by un-commenting these 3 objects and the list of console logs below:
 
-function GameObject (name, dimensions) {
-  this.createdAt = new Date();
-  this.name = this.name;
-  this.dimensions = this.dimensions;
+function GameObject (attrs) {
+  this.createdAt = Date();
+  this.name = attrs.name;
+  this.dimensions = {
+    length: attrs.length,
+    width: attrs.width,
+    height: attrs.height
+  };
 };
 
 GameObject.prototype.destroy = function () {
   return `${this.name} was removed from the game`
 };
 
-function CharacterStats (healthPoints) {
-  this.healthPoints = this.healthPoints;
+
+function CharacterStats (stats) {
+  GameObject.call(this, stats);
+  this.healthPoints = stats.healthPoints;
 };
 
 CharacterStats.prototype = Object.create(GameObject.prototype);
@@ -61,10 +67,11 @@ CharacterStats.prototype.takeDamage = function () {
   return `${this.name} took damage.`
 };
 
-function Humanoid (team, weapons, language) {
-  this.team = this.team;
-  this.weapons = this.weapons;
-  this.language = this.language;
+function Humanoid (attrs) {
+  CharacterStats.call(this, attrs);
+  this.team = attrs.team;
+  this.weapons = attrs.weapons;
+  this.language = attrs.language;
   this.greet = function () {
     return `${this.name} offers a greeting in ${this.language}.`
   };
